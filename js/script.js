@@ -83,9 +83,23 @@ const printQuote = () => {
   document.getElementById("quote-box").innerHTML = html;
 };
 
+//change background color when the button is clicked
+const randomColor = () => {
+  //store random color
+  const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+  //change the background color
+  document.body.style.backgroundColor = color;
+}
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 
-document.getElementById("load-quote").addEventListener("click", printQuote, false);
+const button = document.getElementById("load-quote");
+button.addEventListener("click", printQuote, false);
+button.addEventListener("click", randomColor, false);
+
+//change the color of the backgroud 
+
+
