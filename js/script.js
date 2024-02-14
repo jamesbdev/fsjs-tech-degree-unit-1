@@ -96,10 +96,18 @@ const randomColor = () => {
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 
+//get the button 
 const button = document.getElementById("load-quote");
+//call printQuote function when clicking on the button to generate a quote
 button.addEventListener("click", printQuote, false);
+//call randomColor function when clicking on the button to change the background color
 button.addEventListener("click", randomColor, false);
 
-//change the color of the backgroud 
+//change quote and background color every 10 seconds
+setInterval(function() {
+  printQuote();
+  randomColor();
+}, 10000);
+
 
 
