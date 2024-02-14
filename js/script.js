@@ -15,13 +15,13 @@ const quotes = [
     quote: "I know starting careers in troubled times is a challenge, but it is also a privilege. Because it's moments like these that force us to try harder, dig deeper and to discover gifts we never knew we had. To find the greatness that lies within each of us. So don't ever shy away from that endeavor. Don't stop adding to your body of work. I can promise that you will be the better for that continued effort as will be this nation that we all love.",
     source: "Barack Obama",
     year: "2009",
-    citation: "Arizona State University Commencement Address, 2009",
+    citation: "Arizona State University Commencement Address",
 },
 {
   quote: "You will not find your passion in things and you will not find your passion in money. The more things and the more money you have, the more you will look around and use that as the metric and there will be someone with more.",
   source: "Randy Pausch",
   year: "2008",
-  citation: "Carnegie Mellon Commencement Speech, 2008",
+  citation: "Carnegie Mellon Commencement Speech",
 }, 
 {
   quote: "Life is a foreign language; all men mispronounce it.",
@@ -49,12 +49,35 @@ const quotes = [
 /***
  * `getRandomQuote` function
 ***/
+const getRandomQuote = () => {
+  const randomQuote = Math.floor(Math.random() * quotes.length);
+  return quotes[randomQuote];
+}
+
+console.log(getRandomQuote());
+
 
 
 
 /***
  * `printQuote` function
 ***/
+
+const printQuote = () => {
+  const randomQuote = getRandomQuote();
+  let html = `<p class="quote"> ${randomQuote.quote} </p>
+  <p class="source"> ${randomQuote.source}`;
+
+  if (randomQuote.citation) {
+    html += `<span class="citation"> ${randomQuote.citation} </span>`;
+  }
+  if (randomQuote.year) {
+    html += `<span class="year"> ${randomQuote.year} </span>`;
+  }
+  html += `</p>`;
+
+  document.getElementById('quote-box').innerHTML = html; 
+}
 
 
 
