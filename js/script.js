@@ -20,12 +20,14 @@ const quotes = [
     source: "Randy Pausch",
     year: "2008",
     citation: "Carnegie Mellon Commencement Speech",
+    tag: "Passion"
   },
   {
     quote: "Life is a foreign language; all men mispronounce it.",
     source: "Christopher Morley",
     year: "1890-1956",
     citation: "",
+    tag: "Life"
   },
   {
     quote: "When you cannot get a compliment any other way pay yourself one.",
@@ -38,6 +40,7 @@ const quotes = [
     source: "Niels Bohr",
     year: "1885-1962",
     citation: "",
+    tag: "The future"
   },
 ];
 
@@ -62,12 +65,16 @@ const printQuote = () => {
   let html = `<p class="quote"> ${randomQuote.quote} </p>
   <p class="source"> ${randomQuote.source}`;
   //check if there is a citation property
-  if (randomQuote.citation) {
+  if (randomQuote.citation && randomQuote.citation !== "") {
     html += `<span class="citation"> ${randomQuote.citation} </span>`;
   }
   //check if there is a year property
-  if (randomQuote.year) {
+  if (randomQuote.year && randomQuote.year !== "") {
     html += `<span class="year"> ${randomQuote.year} </span>`;
+  }
+
+  if(randomQuote.tag && randomQuote.tag !== ""){
+    html += `<span class="tag"> - ${randomQuote.tag} </span>`;
   }
   //close the paragraph tag
   html += `</p>`;
@@ -81,6 +88,4 @@ const printQuote = () => {
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 
-document
-  .getElementById("load-quote")
-  .addEventListener("click", printQuote, false);
+document.getElementById("load-quote").addEventListener("click", printQuote, false);
